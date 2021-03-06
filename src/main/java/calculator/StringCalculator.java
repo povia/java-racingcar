@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class StringCalculator {
 
   public int calculate(String formula){
-    nonEmpty(formula, "Formula is null");
+    validateNonEmpty(formula);
     String[] splittedData = formula.split(" ");
     int result = convertStringToInt(splittedData[0]);
     for(int i=1; i<splittedData.length; i+=2){
@@ -26,7 +26,7 @@ public class StringCalculator {
     throw new IllegalArgumentException("Operator Error");
   }
 
-  private void nonEmpty(String target, String errorMessage){
+  private void validateNonEmpty(String target){
     if(target.trim().isEmpty() || target==null){
       throw new IllegalArgumentException("Target String is empty.");
     }
